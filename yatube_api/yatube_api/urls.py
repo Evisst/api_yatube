@@ -7,7 +7,6 @@ from django.shortcuts import redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Вся логика API скрыта в приложении `api`
     path('api/v1/', include('api.urls')),
     path('', lambda request: redirect('api/v1/')),
 ]

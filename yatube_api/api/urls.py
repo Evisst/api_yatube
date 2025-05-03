@@ -4,6 +4,7 @@ from rest_framework_nested import routers as nested_routers
 from rest_framework.authtoken.views import obtain_auth_token
 from .views import PostViewSet, GroupViewSet, CommentViewSet
 
+
 router = routers.DefaultRouter()
 router.register(r'posts', PostViewSet, 
                 basename='posts')
@@ -17,8 +18,7 @@ posts_router.register(r'comments', CommentViewSet,
 
 
 urlpatterns = [
-        path('api-token-auth/', obtain_auth_token, 
-         name='api-token-auth'),
+        path('api-token-auth/', obtain_auth_token, name='api-token-auth'),
         path('', include(router.urls)),
         path('', include(posts_router.urls)),
 ]
